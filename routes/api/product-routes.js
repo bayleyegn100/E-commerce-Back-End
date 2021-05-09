@@ -27,7 +27,7 @@ router.get('/:id', async (req, res) => {
       res.status(404).json({ message: 'No product found with this ID!' });
       return;
     }
-    res.status(200).json(productData);
+    res.json(productData);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -56,9 +56,9 @@ router.post('/', (req, res) => {
         return ProductTag.bulkCreate(productTagIdArr);
       }
       // if no product tags, just respond
-      res.status(200).json(product);
+      res.json(product);
     })
-    .then((productTagIds) => res.status(200).json(productTagIds))
+    .then((productTagIds) => res.json(productTagIds))
     .catch((err) => {
       console.log(err);
       res.status(400).json(err);
@@ -106,9 +106,21 @@ router.put('/:id', (req, res) => {
       res.status(400).json(err);
     });
 });
-
-router.delete('/:id', (req, res) => {
-  // delete one product by its `id` value
+ // deleteing one product by its `id` value
+router.delete('/:id', async (req, res) => {
+  try {
+    const productData = await Product.destroy({
+      where: {
+        id: req.params.id
+      }
+    });
+    if (!productData) {
+      res.status(404).json({ message: 'No product found with that ID!'});
+      return;
+    }
+    res.json(productData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
-
 module.exports = router;
