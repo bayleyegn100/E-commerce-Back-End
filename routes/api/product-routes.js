@@ -1,8 +1,6 @@
 const router = require('express').Router();
 const { Product, Category, Tag, ProductTag } = require('../../models');
-
 // The `/api/products` endpoint
-
 // find all products
 router.get('/', async (req, res) => {
   try {
@@ -14,10 +12,8 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 // find a single product by its `id`
 router.get('/:id', async (req, res) => {
-
   try {
     const productData = await Product.findByPk(req.params.id, {
       include: [{ model: Category, as: 'category' }, { model: Tag, through: ProductTag }]
@@ -32,7 +28,6 @@ router.get('/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 // create new product
 router.post('/', (req, res) => {
   /* req.body should look like this...
@@ -64,7 +59,6 @@ router.post('/', (req, res) => {
       res.status(400).json(err);
     });
 });
-
 // update product
 router.put('/:id', (req, res) => {
   // update product data
