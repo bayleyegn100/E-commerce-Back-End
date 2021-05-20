@@ -39,9 +39,10 @@ Try to read and watch relevant materials, tutorials and practice, practice, ....
 
 I checked the application for many times, and it works well. If you want you can click on a walkthrough videos.
 
-## Video 1: https://drive.google.com/file/d/1rDfQHO2aaWvrqLWUCv_yoNYJvIh78yeO/view
+## Video 1: https://drive.google.com/file/d/1S_jk-z-9e2kv6ar0-01GAkfKBxKRmJbu/view
 
-## Video 2: https://drive.google.com/file/d/15661LjvAJITxOK-Xq2xA4bD9HtabG1mg/preview 
+## Video 2: https://drive.google.com/file/d/1JYUsU0j3ZKM9dwdKts2AzbA5QBVbMqIE/view
+
 
 ![Image from Heroku, deployed](img/UpdatingTagId.jpg)
 
